@@ -17,7 +17,7 @@ class Proyek extends CI_Controller {
 
 				$proyek = $this->proyek->get_proyek_by_client($userdata['username']);
 				if ($proyek)
-					redirect('proyek/detail-proyek/'.$proyek['id']);
+					redirect('proyek/getProyek/'.$proyek['id']);
 				else {
 					$this->session->unset_userdata('logged_in');
 					redirect('autentikasi');
@@ -38,7 +38,7 @@ class Proyek extends CI_Controller {
 		}
 	}
 
-	public function detail_proyek($id)
+	public function getProyek($id)
 	{
 		if ($userdata = $this->session->userdata('logged_in')) {
 			$data['proyek'] = $this->proyek->get_proyek_by_id($id);
@@ -54,14 +54,14 @@ class Proyek extends CI_Controller {
 		}
 	}
 
-	public function form_tambahproyek()
+	public function formAddProyek()
 	{
 		if ($userdata = $this->session->userdata('logged_in')) {
 			if ($userdata['tipe'] == 0) {
 
 				$proyek = $this->proyek->get_proyek_by_client($userdata['username']);
 				if ($proyek)
-					redirect('proyek/detail-proyek/'.$proyek['id']);
+					redirect('proyek/getProyek/'.$proyek['id']);
 				else {
 					$this->session->unset_userdata('logged_in');
 					redirect('autentikasi');
@@ -82,7 +82,7 @@ class Proyek extends CI_Controller {
 		}
 	}
 
-	public function tambahproyek()
+	public function addProyek()
 	{
 		$this->form_validation->set_rules('nama_proyek', 'Nama Proyek', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('deskripsi', 'Deskripsi Proyek', 'trim|xss_clean');

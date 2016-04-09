@@ -36,7 +36,7 @@ class Autentikasi extends CI_Controller {
 		}
 	}
 
-	public function masuk()
+	public function signIn()
 	{
 		$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
@@ -73,13 +73,19 @@ class Autentikasi extends CI_Controller {
 		}
 	}
 
-	public function keluar()
+	public function signOut()
 	{
 		if ($this->session->userdata('logged_in'))
 			$this->session->unset_userdata('logged_in');
 
 		$this->session->set_flashdata('success', "Anda telah log out dari Progress Tracker.");
 		redirect('autentikasi');
+	}
+
+	/*** NO REDIRECT METHODS ***/
+	public function addPenggunaKlien($email)
+	{
+		
 	}
 
 }
