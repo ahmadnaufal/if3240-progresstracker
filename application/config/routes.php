@@ -52,8 +52,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'diklat';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['detail_diklat/(:any)'] = 'diklat/getdiklat/$1';
-$route['cari_diklat'] = 'diklat/getSearchPage';
-$route['detail_diklat/(:any)/peserta'] = 'peserta/getPesertaInDiklat/$1';
-$route['pengumuman'] = 'peserta/pengumuman';
-$route['pengumuman/(:any)'] = 'peserta/getPesertaInDiklat/$1';
