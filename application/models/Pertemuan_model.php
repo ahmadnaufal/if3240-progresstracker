@@ -14,7 +14,7 @@ class Pertemuan_model extends CI_Model
 	{
 		$result = $this->db->insert('pertemuan', $data);
 
-		return $result();
+		return $result;
 	}
 
 

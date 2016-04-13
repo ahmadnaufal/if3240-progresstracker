@@ -14,7 +14,7 @@ class Channel_model extends CI_Model
 	{
 		$result = $this->db->insert('channel', $data);
 
-		return $result();
+		return $this->db->insert_id();
 	}
 
 
