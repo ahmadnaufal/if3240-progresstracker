@@ -20,7 +20,7 @@ class Autentikasi extends CI_Controller {
 
 				$proyek = $this->proyek_model->get_proyek_by_client($userdata['username']);
 				if ($proyek)
-					redirect('proyek/detail-proyek/'.$proyek['id']);
+					redirect('proyek/getProyek/'.$proyek['id']);
 				else {
 					$this->session->unset_userdata('logged_in');
 					redirect('autentikasi');
@@ -43,10 +43,10 @@ class Autentikasi extends CI_Controller {
 
 		if ($this->form_validation->run()) {
 
-			$username = $this->input->post("$username");
+			$username = $this->input->post("username");
 			$password = hash("sha512", $this->input->post("password"));
 
-			if ($userdata = $this->user->get_pengguna_by_username($username)) {
+			if ($userdata = $this->pengguna->get_pengguna_by_username($username)) {
 
 				if ($userdata['password'] == $password) {
 					unset($userdata['password']);
@@ -83,9 +83,17 @@ class Autentikasi extends CI_Controller {
 	}
 
 	/*** NO REDIRECT METHODS ***/
-	public function addPenggunaKlien($email)
+	public static function addPenggunaKlien($email)
 	{
-		
+		$pengguna_data['username'] = substr($email, 0, strpos($email, '@'));
+		$pengguna_data['password'] = hash('sha512', $pengguna_data['username'] . "-" . bin2hex(openssl_random_pseudo_bytes(10)));
+		$pengguna_data['email'] = $email;
+
+		if ($this->pengguna->insert_to_pengguna($pengguna_data)) {
+			return $pengguna_data['username'];
+		} else {
+			return NULL;
+		}
 	}
 
 }

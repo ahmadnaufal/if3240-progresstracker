@@ -86,48 +86,36 @@ class Proyek extends CI_Controller {
 	{
 		$this->form_validation->set_rules('nama_proyek', 'Nama Proyek', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('deskripsi', 'Deskripsi Proyek', 'trim|xss_clean');
-		$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
-		$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('email', 'E-mail Klien', 'trim|required|xss_clean');
 
 		if ($this->form_validation->run()) {
 
-			$username = $this->input->post("$username");
-			$password = hash("sha512", $this->input->post("password"));
+			$proyek_data['nama_proyek'] = $this->input->post("nama_proyek");
+			$proyek_data['deskripsi'] = $this->input->post("deskripsi");
+			$email = $this->input->post("email");
 
-			if ($userdata = $this->user->get_pengguna_by_username($username)) {
+			if ($proyek_data['username_klien'] = Autentikasi::addPenggunaKlien($email)) {
 
-				if ($userdata['password'] == $password) {
-					unset($userdata['password']);
-					$this->session->set_userdata('logged_in', $userdata);
-					$this->session->set_flashdata('welcome_message', "Selamat datang kembali, " . $userdata['username']);
-
-					redirect('autentikasi');
+				if ($result_id = $this->proyek->insert_new_proyek($proyek_data)) {
+					$this->session->set_flashdata('success', "Pembuatan Proyek Berhasil. Selamat datang di halaman overview Proyek Anda!");
+					redirect('proyek/getProyek/'.$result_id);
 				} else {
-					$this->session->set_flashdata('error', "Password salah!");
-					redirect('autentikasi');
+					$this->session->set_flashdata('error', "Database error. Silakan ulang beberapa saat lagi.");
+					redirect('proyek/formAddProyek');
 				}
 
 			} else {
 				# set error login message
-				$this->session->set_flashdata('error', 'Username yang Anda masukkan tidak terdaftar!');
-				redirect('autentikasi');
+				$this->session->set_flashdata('error', "Database error. Silakan ulang beberapa saat lagi.");
+				redirect('proyek/formAddProyek');
 			}
 
 		} else {
 
 			$this->session->set_flashdata('error', validation_errors());
-			redirect('autentikasi');
+			redirect('proyek/formAddProyek');
 
 		}
-	}
-
-	public function keluar()
-	{
-		if ($this->session->userdata('logged_in'))
-			$this->session->unset_userdata('logged_in');
-
-		$this->session->set_flashdata('success', "Anda telah log out dari Progress Tracker.");
-		redirect('autentikasi');
 	}
 
 }
