@@ -11,10 +11,14 @@
 	margin-top: 12px;
 }
 
-.proyek-card {
+.proyek-card,
+.proyek-card:hover {
+	display: block;
 	min-height: 100px;
 	border-radius: 3px;
 	background-color: #90f;
+	text-decoration: none;
+	color: #000;
 }
 
 .proyek-card .proyek-title {

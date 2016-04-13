@@ -31,10 +31,10 @@ class Proyek_model extends CI_Model
 		return $this->db->get()->row_array();
 	}
 
-	public function get_proyek_by_client($username_pengguna)
+	public function get_proyek_by_client($username_klien)
 	{
 		$this->db->from('proyek');
-		$this->db->where('username_pengguna', $username_pengguna);
+		$this->db->where('username_klien', $username_klien);
 
 		return $this->db->get()->row_array();
 	}

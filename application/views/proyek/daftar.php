@@ -8,34 +8,18 @@
 		</div>
 		<div class="panel-body">
 			<div class="row">
+
+				<?php foreach($daftar_proyek as $proyek) :	 ?>
+
 				<div class="col-md-3">
-					<div class="proyek-card">
+					<a href="<?= base_url('proyek/getProyek/'.$proyek['id']) ?>" class="proyek-card">
 						<div class="proyek-title">
-							Kuda
+							<?= $proyek['nama_proyek'] ?>
 						</div>
-					</div>
+					</a>
 				</div>
-				<div class="col-md-3">
-					<div class="proyek-card">
-						<div class="proyek-title">
-							Kuda
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="proyek-card">
-						<div class="proyek-title">
-							Kuda
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="proyek-card">
-						<div class="proyek-title">
-							Kuda
-						</div>
-					</div>
-				</div>
+				
+				<?php endforeach; ?>
 			</div>
 		</div>
 	</div>
