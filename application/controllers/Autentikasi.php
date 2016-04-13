@@ -27,7 +27,7 @@ class Autentikasi extends CI_Controller {
 				}
 
 			} else {
-				redirect('proyek/daftar-proyek');
+				redirect('proyek');
 			}
 		} else {
 			$this->load->view('templates/html.php');

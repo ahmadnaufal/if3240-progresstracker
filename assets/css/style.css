@@ -1,0 +1,24 @@
+.offset-navbar {
+	min-height: 80px;
+}
+
+.panel-heading h3 {
+	font-weight: bold;
+	display: inline-block;
+}
+
+.panel-heading .btn {
+	margin-top: 12px;
+}
+
+.proyek-card {
+	min-height: 100px;
+	border-radius: 3px;
+	background-color: #90f;
+}
+
+.proyek-card .proyek-title {
+	padding: 10px 10px;
+	font-weight: bold;
+	font-size: 1.2em;
+}
