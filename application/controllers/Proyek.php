@@ -94,7 +94,7 @@ class Proyek extends CI_Controller {
 			$proyek_data['deskripsi'] = $this->input->post("deskripsi");
 			$email = $this->input->post("email");
 
-			if ($proyek_data['username_klien'] = Autentikasi::addPenggunaKlien($email)) {
+			if ($proyek_data['username_klien'] = $this->addPenggunaKlien($email)) {
 
 				if ($result_id = $this->proyek->insert_new_proyek($proyek_data)) {
 					$this->session->set_flashdata('success', "Pembuatan Proyek Berhasil. Selamat datang di halaman overview Proyek Anda!");
@@ -115,6 +115,22 @@ class Proyek extends CI_Controller {
 			$this->session->set_flashdata('error', validation_errors());
 			redirect('proyek/formAddProyek');
 
+		}
+	}
+
+	/*** NO REDIRECT METHODS ***/
+	public function addPenggunaKlien($email)
+	{
+		$this->load->model('pengguna_model');
+
+		$pengguna_data['username'] = substr($email, 0, strpos($email, '@'));
+		$pengguna_data['password'] = hash('sha512', $pengguna_data['username']);
+		$pengguna_data['email'] = $email;
+
+		if ($this->pengguna_model->insert_new_pengguna($pengguna_data)) {
+			return $pengguna_data['username'];
+		} else {
+			return NULL;
 		}
 	}
 

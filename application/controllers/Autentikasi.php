@@ -82,18 +82,4 @@ class Autentikasi extends CI_Controller {
 		redirect('autentikasi');
 	}
 
-	/*** NO REDIRECT METHODS ***/
-	public static function addPenggunaKlien($email)
-	{
-		$pengguna_data['username'] = substr($email, 0, strpos($email, '@'));
-		$pengguna_data['password'] = hash('sha512', $pengguna_data['username'] . "-" . bin2hex(openssl_random_pseudo_bytes(10)));
-		$pengguna_data['email'] = $email;
-
-		if ($this->pengguna->insert_to_pengguna($pengguna_data)) {
-			return $pengguna_data['username'];
-		} else {
-			return NULL;
-		}
-	}
-
 }

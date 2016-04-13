@@ -26,3 +26,16 @@
 	font-weight: bold;
 	font-size: 1.2em;
 }
+
+.content-header {
+	padding-bottom: 10px;
+}
+
+.content-body {
+	padding-top: 20px;
+}
+
+textarea.form-control {
+	resize: none;
+	height: 100px !important;
+}

@@ -10,3 +10,4 @@
 	<link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
 </head>
 <body>
+	<div class="container">
