@@ -1,3 +1,8 @@
+body {
+	font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background-color: #EFEFEF;
+}
+
 .offset-navbar {
 	min-height: 80px;
 }
@@ -38,4 +43,78 @@
 textarea.form-control {
 	resize: none;
 	height: 100px !important;
+}
+
+.nav-tabs > li, .nav-pills > li {
+    float: none;
+    display: inline-block;
+    *display: inline; /* ie7 fix */
+    zoom:1; /* hasLayout ie7 trigger */
+    min-width: 250px;
+}
+
+.nav-tabs, .nav-pills {
+    text-align: center;
+}
+
+.progress {
+	height: 30px;
+}
+
+.progress > .progress-bar {
+	padding-top: 5px;
+}
+
+.tab-content > .tab-pane {
+	padding: 30px 40px;
+}
+
+.highlight-black {
+	padding: 8px;
+	background-color: #3A3A3A;
+	color: #fff;
+	border-radius: 3px;
+	font-weight: bold;
+	font-size: 0.9em;
+	display: inline-block;
+}
+
+.progress-helper p {
+	margin-top: 20px;
+}
+
+.media {
+	border-radius: 3px;
+}
+
+.media > div {
+	padding: 10px 10px;
+}
+
+.media > .media-left {
+	background-color: #3A3A3A;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+	width: 20%;
+}
+
+.media > .media-left > .tanggal {
+	font-size: 2em;
+}
+
+.media .media-body {
+	border: 1px solid #3A3A3A;
+	background-color: #fff;
+	vertical-align: middle;
+}
+
+.media .media-body .media-heading {
+	font-weight: bold;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+	color: #fff;
+	background-color: #3A3A3A;
 }
