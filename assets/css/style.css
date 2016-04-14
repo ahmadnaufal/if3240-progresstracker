@@ -118,3 +118,7 @@ textarea.form-control {
 	color: #fff;
 	background-color: #3A3A3A;
 }
+
+a, a:hover {
+	text-decoration: none;
+}

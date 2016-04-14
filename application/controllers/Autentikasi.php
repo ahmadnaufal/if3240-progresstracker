@@ -20,7 +20,7 @@ class Autentikasi extends CI_Controller {
 
 				$proyek = $this->proyek_model->get_proyek_by_client($userdata['username']);
 				if ($proyek)
-					redirect('proyek/getProyek/'.$proyek['id']);
+					redirect('proyek/'.$proyek['id']);
 				else {
 					$this->session->unset_userdata('logged_in');
 					redirect('autentikasi');

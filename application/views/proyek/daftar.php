@@ -11,7 +11,7 @@
 			<?php foreach($daftar_proyek as $proyek) :	 ?>
 
 			<div class="col-md-3">
-				<a href="<?= base_url('proyek/getProyek/'.$proyek['id']) ?>" class="proyek-card">
+				<a href="<?= base_url('proyek/'.$proyek['id']) ?>" class="proyek-card">
 					<div class="proyek-title">
 						<?= $proyek['nama_proyek'] ?>
 					</div>

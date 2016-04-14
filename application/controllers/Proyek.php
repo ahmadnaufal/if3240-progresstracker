@@ -17,7 +17,7 @@ class Proyek extends CI_Controller {
 
 				$proyek = $this->proyek->get_proyek_by_client($userdata['username']);
 				if ($proyek)
-					redirect('proyek/getProyek/'.$proyek['id']);
+					redirect('proyek/' . $proyek['id']);
 				else {
 					$this->session->unset_userdata('logged_in');
 					redirect('autentikasi');
@@ -41,12 +41,24 @@ class Proyek extends CI_Controller {
 	public function getProyek($id)
 	{
 		if ($userdata = $this->session->userdata('logged_in')) {
-			$data['proyek'] = $this->proyek->get_proyek_by_id($id);
+			$proyek_data['proyek'] = $this->proyek->get_proyek_by_id($id);
+
+			$this->load->model('channel_model');
+			$this->load->model('pesan_model');
+			$this->load->model('kegiatan_model');
+			$this->load->model('pertemuan_model');
+			$this->load->model('progress_model');
+
+			$proyek_data['channel_proyek'] = $this->channel_model->get_all_channel_on_proyek($id);
+			for($i = 0; $i < sizeof($proyek_data['channel_proyek']); $i++)
+				$proyek_data['channel_proyek'][$i]['jumlah_pesan'] = sizeof($this->pesan_model->get_all_pesan_on_channel($proyek_data['channel_proyek'][$i]['id']));
+
+			$proyek_data['pertemuan_proyek'] = $this->pertemuan_model->get_all_pertemuan_on_proyek($id);
 			$data['userdata'] = $userdata;
 
 			$this->load->view('templates/html.php');
 			$this->load->view('templates/header.php', $data);
-			$this->load->view('proyek/detail.php', $data);
+			$this->load->view('proyek/detail.php', $proyek_data);
 			$this->load->view('templates/footer.php');
 		} else {
 			$this->session->set_flashdata('error', "Anda harus masuk terlebih dahulu.");
@@ -61,7 +73,7 @@ class Proyek extends CI_Controller {
 
 				$proyek = $this->proyek->get_proyek_by_client($userdata['username']);
 				if ($proyek)
-					redirect('proyek/getProyek/'.$proyek['id']);
+					redirect('proyek/' . $proyek['id']);
 				else {
 					$this->session->unset_userdata('logged_in');
 					redirect('autentikasi');
@@ -98,7 +110,7 @@ class Proyek extends CI_Controller {
 
 				if ($result_id = $this->proyek->insert_new_proyek($proyek_data)) {
 					$this->session->set_flashdata('success', "Pembuatan Proyek Berhasil. Selamat datang di halaman overview Proyek Anda!");
-					redirect('proyek/getProyek/'.$result_id);
+					redirect('proyek/' . $proyek['id']);
 				} else {
 					$this->session->set_flashdata('error', "Database error. Silakan ulang beberapa saat lagi.");
 					redirect('proyek/formAddProyek');

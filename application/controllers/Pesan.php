@@ -29,6 +29,7 @@ class Pesan extends CI_Controller {
 
 	public function addPesan()
 	{
+		$id_proyek = $this->input->post("id_proyek");
 		$this->form_validation->set_rules('konten', 'Nama Proyek', 'trim|required|xss_clean');
 
 		if ($this->form_validation->run()) {
@@ -37,18 +38,19 @@ class Pesan extends CI_Controller {
 			$pesan_data['id_channel'] = $this->input->post("id_channel");
 			$pesan_data['username_pengguna'] = $this->session->userdata('logged_in')['username'];
 
+
 			if ($result_id = $this->pesan->insert_new_pesan($pesan_data)) {
 				$this->session->set_flashdata('success', "Pembuatan Pesan berhasil!");
-				redirect('channel/getChannel/'.$pesan_data['id_channel']);
+				redirect('proyek/'.$id_proyek.'/channel/'.$pesan_data['id_channel']);
 			} else {
 				$this->session->set_flashdata('error', "Database error. Silakan ulang beberapa saat lagi.");
-				redirect('pesan/formAddPesan');
+				redirect('proyek/'.$id_proyek.'/channel/'.$pesan_data['id_channel']);
 			}
 
 		} else {
 
 			$this->session->set_flashdata('error', validation_errors());
-			redirect('pesan/formAddPesan');
+			redirect('proyek/'.$id_proyek.'/channel/'.$pesan_data['id_channel']);
 
 		}
 	}

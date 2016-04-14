@@ -15,6 +15,7 @@
                   <input type="text" class="form-control" id="namaChannel" name="nama_channel" placeholder="Nama Channel" />
                 </div>
             </div>
+            <input type="hidden" name="id_proyek" value="<?= $id ?>">
           </div>
         </div>
         <div class="modal-footer">

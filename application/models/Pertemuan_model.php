@@ -21,7 +21,7 @@ class Pertemuan_model extends CI_Model
 	public function get_all_pertemuan_on_proyek($id_proyek)
 	{
 		$this->db->where('id_proyek', $id_proyek);
-		$this->db->order_by('waktu', 'desc');
+		$this->db->order_by('waktu', 'asc');
 		return $this->db->get('pertemuan')->result_array();
 	}
 

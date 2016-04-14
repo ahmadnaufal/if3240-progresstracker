@@ -1,5 +1,16 @@
 
 <div class="main-content">
+
+	<?php if ($errormsg = $this->session->flashdata('error')) : ?>
+		<div class="alert alert-warning">
+			<?= $errormsg ?>
+		</div>
+	<?php elseif ($msg = $this->session->flashdata('success')): ?>
+		<div class="alert alert-success">
+			<?= $msg ?>
+		</div>
+	<?php endif; ?>
+
 	<div class="content-header">
 		<h1><?= $proyek['nama_proyek'] ?></h1>
 		<p><?= $proyek['deskripsi'] ?></p>
@@ -22,10 +33,18 @@
 				<?php $this->load->view('proyek/progress.php') ?>
 			</div>
 			<div role="tabpanel" class="tab-pane fade" id="pertemuan">
-				<?php $this->load->view('proyek/pertemuan.php') ?>
+				<?php
+					$data['proyek'] = $proyek;
+					$data['pertemuan_proyek'] = $pertemuan_proyek;
+				 	$this->load->view('proyek/pertemuan.php', $data)
+				?>
 			</div>
 			<div role="tabpanel" class="tab-pane fade" id="channel">
-				<?php $this->load->view('proyek/channel.php') ?>
+				<?php
+					$data['proyek'] = $proyek;
+					$data['channel_proyek'] = $channel_proyek;
+				 	$this->load->view('proyek/channel.php', $data)
+				?>
 			</div>
 		</div>
 	</div>

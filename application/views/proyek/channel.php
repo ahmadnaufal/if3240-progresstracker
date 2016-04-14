@@ -7,29 +7,26 @@
 </div>
 
 <div class="row">
-	<div class="col-sm-6">
-		<div class="media">
-			<div class="media-left media-middle">
-			    <span class="tanggal">3</span><br>
-			    Pesan
-			</div>
-			<div class="media-body">
-			    <h4 class="media-heading">Channel Khusus UI</h4>
-			</div>
+	<?php foreach ($channel_proyek as $channel) : ?>
+	
+		<div class="col-sm-6">
+			<a href="<?= base_url('proyek/'.$proyek['id'].'/channel/'.$channel['id']) ?>">
+				<div class="media">
+					<div class="media-left media-middle">
+					    <span class="tanggal"><?= $channel['jumlah_pesan'] ?></span><br>
+					    Pesan
+					</div>
+					<div class="media-body">
+					    <h4 class="media-heading"><?= $channel['nama_channel'] ?></h4>
+					</div>
+				</div>
+			</a>
 		</div>
-	</div>
-	<div class="col-sm-6">
-		<div class="media">
-			<div class="media-left media-middle">
-			    <span class="tanggal">20</span><br>
-			    Pesan
-			</div>
-			<div class="media-body">
-			    <h4 class="media-heading">Backend Development</h4>
-			</div>
-		</div>
-	</div>
+
+	<?php endforeach; ?>
 </div>
 
-<?php $this->load->view('channel/form-modal.php') ?>
+<?php
+	$this->load->view('channel/form-modal.php', $proyek);
+?>
 

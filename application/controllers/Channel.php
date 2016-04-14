@@ -14,7 +14,7 @@ class Channel extends CI_Controller {
 	public function index($id)
 	{
 		if ($userdata = $this->session->userdata('logged_in')) {
-			$channel_data['daftar_channel'] = $this->channel->get_all_channel_on_proyek($id)
+			$channel_data['daftar_channel'] = $this->channel->get_all_channel_on_proyek($id);
 			$data['userdata'] = $userdata;
 
 			$this->load->view('templates/html.php');
@@ -27,11 +27,11 @@ class Channel extends CI_Controller {
 		}
 	}
 
-	public function getChannel($id)
+	public function getChannel($id, $id_proyek)
 	{
 		if ($userdata = $this->session->userdata('logged_in')) {
 			$channel_data['channel'] = $this->channel->get_channel_by_id($id);
-			$channel_data['daftar_pesan'] = $this->pesan->get_pesan_on_channel($id);
+			$channel_data['daftar_pesan'] = $this->pesan->get_all_pesan_on_channel($id_proyek);
 			$data['userdata'] = $userdata;
 
 			$this->load->view('templates/html.php');
@@ -63,7 +63,7 @@ class Channel extends CI_Controller {
 
 	public function addChannel()
 	{
-		$this->form_validation->set_rules('nama_channel', 'Nama Proyek', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('nama_channel', 'Nama Channel', 'trim|required|xss_clean');
 
 		if ($this->form_validation->run()) {
 
@@ -72,16 +72,16 @@ class Channel extends CI_Controller {
 
 			if ($result_id = $this->channel->insert_new_channel($channel_data)) {
 				$this->session->set_flashdata('success', "Pembuatan Channel berhasil!");
-				redirect('channel/getChannel/'.$result_id);
+				redirect('proyek/'.$channel_data['id_proyek'].'/channel/'.$result_id);
 			} else {
 				$this->session->set_flashdata('error', "Database error. Silakan ulang beberapa saat lagi.");
-				redirect('channel/formAddChannel');
+				redirect('proyek/' . $channel_data['id_proyek']);
 			}
 
 		} else {
 
 			$this->session->set_flashdata('error', validation_errors());
-			redirect('channel/formAddChannel');
+			redirect('proyek/' . $channel_data['id_proyek']);
 
 		}
 	}

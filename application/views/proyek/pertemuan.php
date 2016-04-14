@@ -7,33 +7,34 @@
 </div>
 
 <div class="row">
-	<div class="col-sm-6">
-		<div class="media">
-			<div class="media-left media-middle">
-			    <span class="tanggal">16</span><br>
-			    April<br>
-			    2016
-			</div>
-			<div class="media-body">
-			    <h4 class="media-heading">Pertemuan I: UI</h4>
-			    Lorem ipsum dolor sit amet. Conspicium
-			</div>
-		</div>
-	</div>
-	<div class="col-sm-6">
-		<div class="media">
-			<div class="media-left media-middle">
-			    <span class="tanggal">19</span><br>
-			    April<br>
-			    2016
-			</div>
-			<div class="media-body">
-			    <h4 class="media-heading">Pertemuan II: Progress</h4>
-			    Lorem ipsum dolor sit amet. Conspicium
+
+	<?php foreach ($pertemuan_proyek as $pertemuan) : ?>
+
+		<?php
+			$tanggal = date("j", strtotime($pertemuan['waktu']));
+			$bulan = date("F", strtotime($pertemuan['waktu']));
+			$tahun = date("Y", strtotime($pertemuan['waktu']));
+		?>
+
+		<div class="col-sm-6">
+			<div class="media">
+				<div class="media-left media-middle">
+				    <span class="tanggal"><?= $tanggal ?></span><br>
+				    <?= $bulan ?><br>
+				    <?= $tahun ?>
+				</div>
+				<div class="media-body">
+				    <h4 class="media-heading"><?= $pertemuan['judul'] ?></h4>
+				    <?= $pertemuan['deskripsi'] ?>
+				</div>
 			</div>
 		</div>
-	</div>
+
+	<?php endforeach; ?>
+
 </div>
 
-<?php $this->load->view('pertemuan/form-modal.php') ?>
+<?php
+	$this->load->view('pertemuan/form-modal.php', $proyek);
+?>
 

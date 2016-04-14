@@ -2,7 +2,7 @@
 <div class="modal fade" id="formAddPertemuan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <?= form_open('channel/addPertemuan', array('class' => 'form-horizontal')) ?>
+      <?= form_open('pertemuan/addPertemuan', array('class' => 'form-horizontal')) ?>
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel">Tambah Pertemuan pada Proyek</h4>
@@ -27,6 +27,7 @@
                   <textarea class="form-control" id="deskripsiPertemuan" name="deskripsi" placeholder="Jelaskan detil pertemuan ini..." ></textarea>
                 </div>
             </div>
+            <input type="hidden" name="id_proyek" value="<?= $id ?>">
           </div>
         </div>
         <div class="modal-footer">

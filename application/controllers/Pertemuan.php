@@ -47,27 +47,29 @@ class Pertemuan extends CI_Controller {
 
 	public function addPertemuan()
 	{
-		$this->form_validation->set_rules('waktu', 'Waktu Pertemuan', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('judul', 'Judul Pertemuan', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('waktu', 'Waktu Pertemuan', 'required|xss_clean');
 		$this->form_validation->set_rules('deskripsi', 'Deskripsi Pertemuan', 'trim|required|xss_clean');
 
 		if ($this->form_validation->run()) {
 
-			$pertemuan_data['waktu'] = $this->input->post("waktu");
+			$pertemuan_data['judul'] = $this->input->post("judul");
+			$pertemuan_data['waktu'] = date('Y-m-d H:i:s', strtotime($this->input->post("waktu")));
 			$pertemuan_data['deskripsi'] = $this->input->post("deskripsi");
 			$pertemuan_data['id_proyek'] = $this->input->post("id_proyek");
 
 			if ($result = $this->pertemuan->insert_new_pertemuan($pertemuan_data)) {
 				$this->session->set_flashdata('success', "Pembuatan Pertemuan berhasil!");
-				redirect('pertemuan/index/' . );
+				redirect('proyek/' . $pertemuan_data['id_proyek']);
 			} else {
 				$this->session->set_flashdata('error', "Database error. Silakan ulang beberapa saat lagi.");
-				redirect('pertemuan/formAddPertemuan');
+				redirect('proyek/' . $pertemuan_data['id_proyek']);
 			}
 
 		} else {
 
 			$this->session->set_flashdata('error', validation_errors());
-			redirect('pertemuan/formAddPertemuan');
+			redirect('proyek/' . $pertemuan_data['id_proyek']);
 
 		}
 	}
