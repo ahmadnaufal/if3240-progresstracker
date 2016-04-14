@@ -15,16 +15,16 @@
 
 		<!-- Tab panes -->
 		<div class="tab-content">
-			<div role="tabpanel" class="tab-pane active" id="overview">
+			<div role="tabpanel" class="tab-pane fade in active" id="overview">
 				<?php $this->load->view('proyek/overview.php') ?>
 			</div>
-			<div role="tabpanel" class="tab-pane" id="progress">
+			<div role="tabpanel" class="tab-pane fade" id="progress">
 				<?php $this->load->view('proyek/progress.php') ?>
 			</div>
-			<div role="tabpanel" class="tab-pane" id="pertemuan">
+			<div role="tabpanel" class="tab-pane fade" id="pertemuan">
 				<?php $this->load->view('proyek/pertemuan.php') ?>
 			</div>
-			<div role="tabpanel" class="tab-pane" id="channel">
+			<div role="tabpanel" class="tab-pane fade" id="channel">
 				<?php $this->load->view('proyek/channel.php') ?>
 			</div>
 		</div>

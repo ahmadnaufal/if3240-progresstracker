@@ -1,8 +1,8 @@
 <div class="row">
 	<div class="col-md-12">
-		<a href="<?= base_url('channel/formaddchannel') ?>" class="btn btn-primary pull-right" style="margin-bottom: 20px;">
+		<button type="button" class="btn btn-primary pull-right" style="margin-bottom: 20px;" data-toggle="modal" data-target="#formAddChannel">
 			<span class="glyphicon glyphicon-plus"></span> Tambah Channel Baru
-		</a>
+		</button>
 	</div>
 </div>
 
@@ -30,4 +30,6 @@
 		</div>
 	</div>
 </div>
+
+<?php $this->load->view('channel/form-modal.php') ?>
 

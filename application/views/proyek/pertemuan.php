@@ -1,8 +1,8 @@
 <div class="row">
 	<div class="col-md-12">
-		<a href="<?= base_url('pertemuan/formaddpertemuan') ?>" class="btn btn-primary pull-right" style="margin-bottom: 20px;">
+		<button type="button" class="btn btn-primary pull-right" style="margin-bottom: 20px;" data-toggle="modal" data-target="#formAddPertemuan">
 			<span class="glyphicon glyphicon-plus"></span> Tambah Pertemuan
-		</a>
+		</button>
 	</div>
 </div>
 
@@ -34,4 +34,6 @@
 		</div>
 	</div>
 </div>
+
+<?php $this->load->view('pertemuan/form-modal.php') ?>
 
