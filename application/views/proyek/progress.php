@@ -29,7 +29,22 @@
           </p>
         </div>
         <div class="timeline-body">
-          <p><?=$kegiatan['deskripsi'] ?></p>
+          <p>
+            <?=$kegiatan['deskripsi'] ?>
+          </p>
+
+        <?php if (sizeof($kegiatan['daftar_file']) > 0) : ?>
+          <div class="file-list">
+            <?php foreach($kegiatan['daftar_file'] as $file) : ?>
+              <p class="file-content">
+                <a href="<?= base_url('uploads/proyek/'.$proyek['id'].'/kegiatan/'.$kegiatan['id'].'/'.$file['nama_file']) ?>">
+                  <?= $file['nama_file'] ?>
+                </a>
+                <p class="helper">Uploaded on <?= date("j F Y H:i:s", strtotime($file['waktu_upload'])) ?></p>
+              </p>
+            <?php endforeach; ?>
+          </div>
+        <?php endif; ?>
         <hr>
         <div class="row">
           <div class="btn-group col-sm-2">
@@ -38,7 +53,7 @@
             </button>
             <ul class="dropdown-menu" role="menu">
               <!-- <li><a href="#" data-toggle="modal" data-target="#formAddProgress">Add Progress</a></li> -->
-              <li><a href="#" data-toggle="modal" data-target="#formAddFile">Upload File</a></li>
+              <li><a href="#" class="kegiatan-file-uploader" data-toggle="modal" data-target="#formAddFile" data-idkegiatan="<?= $kegiatan['id'] ?>">Upload File</a></li>
             </ul>
           </div>
           <?= form_open('progress/addProgress/'.$kegiatan['id'], array('class' => 'form-horizontal')) ?>

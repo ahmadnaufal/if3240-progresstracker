@@ -48,6 +48,7 @@ class Proyek extends CI_Controller {
 			$this->load->model('kegiatan_model');
 			$this->load->model('pertemuan_model');
 			$this->load->model('progress_model');
+			$this->load->model('file_model');
 
 			$proyek_data['channel_proyek'] = $this->channel_model->get_all_channel_on_proyek($id);
 			for($i = 0; $i < sizeof($proyek_data['channel_proyek']); $i++)
@@ -55,6 +56,12 @@ class Proyek extends CI_Controller {
 
 			$proyek_data['pertemuan_proyek'] = $this->pertemuan_model->get_all_pertemuan_on_proyek($id);
 			$proyek_data['kegiatan_proyek'] = $this->kegiatan_model->get_kegiatan_in_proyek($id);
+
+			for($i = 0; $i < sizeof($proyek_data['kegiatan_proyek']); $i++) {
+				$daftar_file = $this->file_model->get_all_file_on_kegiatan($proyek_data['kegiatan_proyek'][$i]['id']);
+				$proyek_data['kegiatan_proyek'][$i]['daftar_file'] = $daftar_file;
+			}
+
 			$data['userdata'] = $userdata;
 
 			$this->load->view('templates/html.php');

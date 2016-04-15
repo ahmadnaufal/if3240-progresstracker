@@ -15,6 +15,7 @@
 		<h1><?= $proyek['nama_proyek'] ?></h1>
 		<p><?= $proyek['deskripsi'] ?></p>
 	</div>
+
 	<div class="content-body">
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs" role="tablist">
