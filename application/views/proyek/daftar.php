@@ -30,30 +30,30 @@
 	<div class="panel-body">
 		<div class="row">
 			<div class="col-md-3">
-				<div class="proyek-card">
+				<div class="proyek-card-inactive">
 					<div class="proyek-title">
-						Kuda
+						Proyek A
 					</div>
 				</div>
 			</div>
 			<div class="col-md-3">
-				<div class="proyek-card">
+				<div class="proyek-card-inactive">
 					<div class="proyek-title">
-						Kuda
+						Proyek B
 					</div>
 				</div>
 			</div>
 			<div class="col-md-3">
-				<div class="proyek-card">
+				<div class="proyek-card-inactive">
 					<div class="proyek-title">
-						Kuda
+						Proyek C
 					</div>
 				</div>
 			</div>
 			<div class="col-md-3">
-				<div class="proyek-card">
+				<div class="proyek-card-inactive">
 					<div class="proyek-title">
-						Kuda
+						Proyek D
 					</div>
 				</div>
 			</div>
