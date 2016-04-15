@@ -41,6 +41,13 @@ class Progress_model extends CI_Model
 		return $this->db->get()->result_array();
 	}
 
+	public function get_last_progress_on_kegiatan($id_kegiatan)
+	{
+		$this->db->where('id_kegiatan', $id_kegiatan);
+		$this->db->order_by('timestamp', 'desc');
+		return $this->db->get('progress', 1)->result_array();
+	}
+
 }
 
 

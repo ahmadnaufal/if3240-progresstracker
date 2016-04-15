@@ -30,7 +30,10 @@
 				<?php $this->load->view('proyek/overview.php') ?>
 			</div>
 			<div role="tabpanel" class="tab-pane fade" id="progress">
-				<?php $this->load->view('proyek/progress.php') ?>
+				<?php 
+					$data['proyek'] = $proyek;
+					$this->load->view('proyek/progress.php') 
+				?>
 			</div>
 			<div role="tabpanel" class="tab-pane fade" id="pertemuan">
 				<?php

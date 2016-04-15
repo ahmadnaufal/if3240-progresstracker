@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-12">
-		<button type="button" class="btn btn-primary pull-right" style="margin-bottom: 20px;" data-toggle="modal" data-target="">
+		<button type="button" class="btn btn-primary pull-right" style="margin-bottom: 20px;" data-toggle="modal" data-target="#formAddKegiatan">
 			<span class="glyphicon glyphicon-plus"></span> Tambah Kegiatan
 		</button>
 	</div>
@@ -122,3 +122,7 @@
     </li>
   </ul>
 </div>
+
+<?php
+  $this->load->view('kegiatan/form.php', $proyek);
+?>
