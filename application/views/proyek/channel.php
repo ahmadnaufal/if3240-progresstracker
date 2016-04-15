@@ -7,7 +7,7 @@
 </div>
 
 <div class="row">
-	<?php foreach ($channel_proyek as $channel) : ?>
+	<?php $i = 0; foreach ($channel_proyek as $channel) : ?>
 	
 		<div class="col-sm-6">
 			<a href="<?= base_url('proyek/'.$proyek['id'].'/channel/'.$channel['id']) ?>">
@@ -22,6 +22,11 @@
 				</div>
 			</a>
 		</div>
+
+		<?php if (++$i % 2 == 0) : ?>
+			</div>
+			<div class="row">
+		<?php endif; ?>
 
 	<?php endforeach; ?>
 </div>

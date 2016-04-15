@@ -31,8 +31,14 @@ class Channel extends CI_Controller {
 	{
 		if ($userdata = $this->session->userdata('logged_in')) {
 			$channel_data['channel'] = $this->channel->get_channel_by_id($id);
-			$channel_data['daftar_pesan'] = $this->pesan->get_all_pesan_on_channel($id_proyek);
+			$channel_data['daftar_pesan'] = $this->pesan->get_all_pesan_on_channel($id);
 			$data['userdata'] = $userdata;
+
+			$this->load->model('pengguna_model');
+			for ($i=0; $i < sizeof($channel_data['daftar_pesan']); $i++) { 
+				$email_pengguna = $this->pengguna_model->get_pengguna_by_username($channel_data['daftar_pesan'][$i]['username_pengguna'])['email'];
+				$channel_data['daftar_pesan'][$i]['email_pengguna'] = $email_pengguna;
+			}
 
 			$this->load->view('templates/html.php');
 			$this->load->view('templates/header.php', $data);

@@ -8,7 +8,7 @@
 
 <div class="row">
 
-	<?php foreach ($pertemuan_proyek as $pertemuan) : ?>
+	<?php $i=0; foreach ($pertemuan_proyek as $pertemuan) : ?>
 
 		<?php
 			$tanggal = date("j", strtotime($pertemuan['waktu']));
@@ -29,6 +29,11 @@
 				</div>
 			</div>
 		</div>
+
+		<?php if (++$i % 2 == 0) : ?>
+			</div>
+			<div class="row">
+		<?php endif; ?>
 
 	<?php endforeach; ?>
 

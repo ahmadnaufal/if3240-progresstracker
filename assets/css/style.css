@@ -142,6 +142,10 @@ a, a:hover {
 	vertical-align: top;
 }
 
+.media .media-body {
+	position: relative;
+}
+
 .pesan-channel .username-pesan {
 	font-size: 1.5em;
 	font-weight: bold;
@@ -151,6 +155,21 @@ a, a:hover {
 	padding: 20px;
 }
 
+.pesan-channel .media-body > .media-footer {
+	border-top: 1px solid #000;
+	font-size: 0.8em;
+	font-style: italic;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	margin-right: 20px;
+	margin-bottom: 10px;
+	padding-top: 3px;
+}
+
+.media {
+	margin-bottom: 20px;
+}
 .timeline {
   list-style: none;
   padding: 20px 0 20px;
