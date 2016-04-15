@@ -57,11 +57,21 @@ class Proyek extends CI_Controller {
 			$proyek_data['pertemuan_proyek'] = $this->pertemuan_model->get_all_pertemuan_on_proyek($id);
 			$proyek_data['kegiatan_proyek'] = $this->kegiatan_model->get_kegiatan_in_proyek($id);
 
+			$progress = 0;
+
 			for($i = 0; $i < sizeof($proyek_data['kegiatan_proyek']); $i++) {
 				$daftar_file = $this->file_model->get_all_file_on_kegiatan($proyek_data['kegiatan_proyek'][$i]['id']);
 				$proyek_data['kegiatan_proyek'][$i]['daftar_file'] = $daftar_file;
+
+				$data_progress = $this->progress_model->get_last_progress_on_kegiatan($proyek_data['kegiatan_proyek'][$i]['id']);
+				if ($data_progress)
+					$persentase = $data_progress['persentase'];
+				else
+					$persentase = 0.0;
+				$progress += ($persentase/(100.0 * sizeof($proyek_data['kegiatan_proyek'])));
 			}
 
+			$data['overview_progress'] = $progress * 100;
 			$data['userdata'] = $userdata;
 
 			$this->load->view('templates/html.php');

@@ -45,7 +45,7 @@ class Progress_model extends CI_Model
 	{
 		$this->db->where('id_kegiatan', $id_kegiatan);
 		$this->db->order_by('timestamp', 'desc');
-		return $this->db->get('progress', 1)->result_array();
+		return $this->db->get('progress', 1)->row_array();
 	}
 
 }

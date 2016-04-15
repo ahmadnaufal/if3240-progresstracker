@@ -28,7 +28,10 @@
 		<!-- Tab panes -->
 		<div class="tab-content">
 			<div role="tabpanel" class="tab-pane fade in active" id="overview">
-				<?php $this->load->view('proyek/overview.php') ?>
+				<?php
+					$data['overview_progress'] = $overview_progress;
+					$this->load->view('proyek/overview.php', $data);
+				?>
 			</div>
 			<div role="tabpanel" class="tab-pane fade" id="progress">
 
