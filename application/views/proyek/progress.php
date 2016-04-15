@@ -25,7 +25,7 @@
             </button>
             <ul class="dropdown-menu" role="menu">
               <li><a href="#">Add Progress</a></li>
-              <li><a href="#">Upload File</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#formAddFile">Upload File</a></li>
             </ul>
           </div>
           <div class="timeline-progress pull-right">
@@ -123,6 +123,10 @@
   </ul>
 </div>
 
+
 <?php
   $this->load->view('kegiatan/form.php', $proyek);
 ?>
+
+<?php $this->load->view('file/form-modal.php'); ?>
+

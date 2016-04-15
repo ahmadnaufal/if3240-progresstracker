@@ -54,6 +54,7 @@ class Proyek extends CI_Controller {
 				$proyek_data['channel_proyek'][$i]['jumlah_pesan'] = sizeof($this->pesan_model->get_all_pesan_on_channel($proyek_data['channel_proyek'][$i]['id']));
 
 			$proyek_data['pertemuan_proyek'] = $this->pertemuan_model->get_all_pertemuan_on_proyek($id);
+			$proyek_data['kegiatan_proyek'] = $this->kegiatan_model->get_kegiatan_in_proyek($id);
 			$data['userdata'] = $userdata;
 
 			$this->load->view('templates/html.php');
