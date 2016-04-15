@@ -10,7 +10,7 @@ class Progress extends CI_Controller {
 		$this->load->model('Progress_model', 'progress');
 	}
 
-	public function addProgress()
+	public function addProgress($id_kegiatan)
 	{
 		$this->form_validation->set_rules('persentase', 'Persentase', 'required|xss_clean');
 
@@ -22,16 +22,16 @@ class Progress extends CI_Controller {
 
 			if ($result = $this->progress->insert_new_progress($progress_data)) {
 				$this->session->set_flashdata('success', "Penambahan Progress berhasil!");
-				redirect('proyek/'.$id_proyek);
+				redirect('proyek/'.$this->input->post("id_proyek"));
 			} else {
 				$this->session->set_flashdata('error', "Database error. Silakan ulang beberapa saat lagi.");
-				redirect('proyek/'.$id_proyek);
+				redirect('proyek/'.$this->input->post("id_proyek"));
 			}
 
 		} else {
 
 			$this->session->set_flashdata('error', validation_errors());
-			redirect('proyek/'.$id_proyek);
+			redirect('proyek/'.$this->input->post("id_proyek"));
 
 		}
 	}

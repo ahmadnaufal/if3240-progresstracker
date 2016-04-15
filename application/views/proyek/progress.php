@@ -31,20 +31,33 @@
         <div class="timeline-body">
           <p><?=$kegiatan['deskripsi'] ?></p>
         <hr>
-          <div class="btn-group">
+        <div class="row">
+          <div class="btn-group col-sm-2">
             <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
               <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="#" data-toggle="modal" data-target="#formAddProgress">Add Progress</a></li>
+              <!-- <li><a href="#" data-toggle="modal" data-target="#formAddProgress">Add Progress</a></li> -->
               <li><a href="#" data-toggle="modal" data-target="#formAddFile">Upload File</a></li>
             </ul>
           </div>
-          <div class="timeline-progress pull-right">
-      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-          60%
-      </div>
-      </div>
+          <?= form_open('progress/addProgress/'.$kegiatan['id'], array('class' => 'form-horizontal')) ?>
+          <div class="input-group col-sm-3">
+            <input type="number" class="form-control" id="persentase" name="persentase" placeholder="" />
+            <input type="hidden" name="username" value="<?= $userdata['username'] ?>">
+            <input type="hidden" id="idProyek" name="id_proyek" value="<?= $proyek['id'] ?>">
+            <input type="hidden" id="idKegiatan" name="id_kegiatan" value="<?= $kegiatan['id'] ?>">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-arrow-right"></i></button>
+            </span>
+          </div>
+          </form>
+          <div class="timeline-progress pull-right" style="margin-right:20px; !important">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                60%
+            </div>
+          </div>
+        </div>
         </div>
       </div>
     </li>
