@@ -343,3 +343,18 @@ a, a:hover {
 .timeline-progress > .progress-bar {
 	padding-top: 5px;
 }
+
+p.helper {
+	font-size: 0.8em;
+	font-style: italic;
+	text-align: right;
+}
+
+p.file-content {
+	margin-bottom: 0;
+	text-align: right;
+}
+
+.file-list {
+	margin-top: 16px;
+}

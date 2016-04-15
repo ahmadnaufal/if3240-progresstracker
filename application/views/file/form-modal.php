@@ -15,7 +15,7 @@
                   <input type="file" id="namaFile" name="file" />
                 </div>
             </div>
-            
+            <input type="hidden" id="id_kegiatan_file" name="id_kegiatan" value>
           </div>
         </div>
         <div class="modal-footer">
