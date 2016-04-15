@@ -36,7 +36,7 @@ class Kegiatan extends CI_Controller {
 
 			$this->load->view('templates/html.php');
 			$this->load->view('templates/header.php', $data);
-			$this->load->view('kegiatan/form.php');
+			$this->load->view('kegiatan/form-modal.php');
 			$this->load->view('templates/footer.php');
 
 		} else {

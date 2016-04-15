@@ -24,7 +24,7 @@
               <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Add Progress</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#formAddProgress">Add Progress</a></li>
               <li><a href="#" data-toggle="modal" data-target="#formAddFile">Upload File</a></li>
             </ul>
           </div>
@@ -124,9 +124,8 @@
 </div>
 
 <?php
-  $this->load->view('kegiatan/form.php', $proyek);
+  $this->load->view('kegiatan/form-modal.php', $proyek);
+  $this->load->view('file/form-modal.php'); 
+  $this->load->view('progress/form-modal.php');
 ?>
-
-<?php $this->load->view('file/form-modal.php'); ?>
-<?php $this->load->view('progress/form-modal.php'); ?>
 
