@@ -15,7 +15,8 @@
                   <input type="number" class="form-control" id="persentase" name="persentase" placeholder="" />
                 </div>
             </div>
-            <input type="hidden" name="id_proyek" value="<?= $id ?>">
+            <input type="hidden" name="username" value="<?= $userdata['username'] ?>">
+            <input type="hidden" id="idProyek" name="id_proyek" value="<?= $id ?>">
           </div>
         </div>
         <div class="modal-footer">

@@ -49,7 +49,10 @@
       </div>
     </li>
     
-    <?php $i++; endforeach; ?>
+    <?php 
+      $i++;
+      endforeach;
+    ?>
   </ul>
 </div>
 
