@@ -37,7 +37,7 @@ class Kegiatan_model extends CI_Model
 	{
 		$this->db->from('kegiatan');
 		$this->db->where('id_proyek', $id_proyek);
-
+		$this->db->order_by('waktu_mulai', 'asc');
 		return $this->db->get()->result_array();
 	}
 

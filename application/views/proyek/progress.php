@@ -8,17 +8,29 @@
 
 <div class="container">
   <ul class="timeline">
-    <li>
-      <div class="timeline-badge success"><i class="glyphicon glyphicon-check"></i></div>
+    <?php $i=1; foreach ($kegiatan_proyek as $kegiatan) : ?>
+    <?php
+      $tanggal_mulai = date("j", strtotime($kegiatan['waktu_mulai']));
+      $bulan_mulai = date("F", strtotime($kegiatan['waktu_mulai']));
+      $tahun_mulai = date("Y", strtotime($kegiatan['waktu_mulai']));
+      $tanggal_selesai = date("j", strtotime($kegiatan['waktu_selesai']));
+      $bulan_selesai = date("F", strtotime($kegiatan['waktu_selesai']));
+      $tahun_selesai = date("Y", strtotime($kegiatan['waktu_selesai']));
+    ?>
+    <li <?php if($i % 2 == 0) echo "class=\"timeline-inverted\"" ?> >
+      <div class="timeline-badge info"><i class="glyphicon glyphicon-credit-card"></i></div>
       <div class="timeline-panel">
         <div class="timeline-heading">
-          <h4 class="timeline-title">Kegiatan 1 Udah selesai</h4>
-          <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 24 Februari 2016 - 30 Februari 2016</small></p>
+          <h4 class="timeline-title"><?=$kegiatan['nama_kegiatan'] ?></h4>
+          <p>
+            <small class="text-muted"><i class="glyphicon glyphicon-time"></i> 
+            <?php echo $tanggal_mulai." ".$bulan_mulai." ".$tahun_mulai." - ".$tanggal_selesai." ".$bulan_selesai." ".$tahun_selesai ?>
+            </small>
+          </p>
         </div>
         <div class="timeline-body">
-          <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo.
-            Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-         <hr>
+          <p><?=$kegiatan['deskripsi'] ?></p>
+        <hr>
           <div class="btn-group">
             <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
               <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
@@ -29,97 +41,15 @@
             </ul>
           </div>
           <div class="timeline-progress pull-right">
-			<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-			   	100%
-			</div>
-		  </div>
+      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+          60%
+      </div>
+      </div>
         </div>
       </div>
     </li>
-    <li class="timeline-inverted">
-      <div class="timeline-badge info"><i class="glyphicon glyphicon-credit-card"></i></div>
-      <div class="timeline-panel">
-        <div class="timeline-heading">
-          <h4 class="timeline-title">Kegiatan 2 On Schedule</h4>
-          <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 24 Februari 2016 - 30 Februari 2016</small></p>
-        </div>
-        <div class="timeline-body">
-          <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo.
-            Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-        <hr>
-          <div class="btn-group">
-            <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-              <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Add Progress</a></li>
-              <li><a href="#">Upload File</a></li>
-            </ul>
-          </div>
-          <div class="timeline-progress pull-right">
-			<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-			   	60%
-			</div>
-		  </div>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="timeline-badge danger"><i class="glyphicon glyphicon-warning-sign"></i></div>
-      <div class="timeline-panel">
-        <div class="timeline-heading">
-          <h4 class="timeline-title">Kegiatan 3 Lewat Deadline</h4>
-          <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 24 Februari 2016 - 30 Februari 2016</small></p>
-        </div>
-        <div class="timeline-body">
-          <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo.
-            Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-        <hr>
-          <div class="btn-group">
-            <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-              <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Add Progress</a></li>
-              <li><a href="#">Upload File</a></li>
-            </ul>
-          </div>
-          <div class="timeline-progress pull-right">
-			<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%;">
-			   	30%
-			</div>
-		  </div>
-        </div>
-      </div>
-    </li>
-    <li class="timeline-inverted">
-      <div class="timeline-badge info"><i class="glyphicon glyphicon-credit-card"></i></div>
-      <div class="timeline-panel">
-        <div class="timeline-heading">
-          <h4 class="timeline-title">Kegiatan 4 On Schedule</h4>
-          <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 24 Februari 2016 - 30 Februari 2016</small></p>
-        </div>
-        <div class="timeline-body">
-          <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo.
-            Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-          <hr>
-          <div class="btn-group">
-            <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-              <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Add Progress</a></li>
-              <li><a href="#">Upload File</a></li>
-            </ul>
-          </div>
-          <div class="timeline-progress pull-right">
-			<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 20%;">
-			   	20%
-			</div>
-		  </div>
-        </div>
-      </div>
-    </li>
+    
+    <?php $i++; endforeach; ?>
   </ul>
 </div>
 
