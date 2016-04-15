@@ -123,10 +123,10 @@
   </ul>
 </div>
 
-
 <?php
   $this->load->view('kegiatan/form.php', $proyek);
 ?>
 
 <?php $this->load->view('file/form-modal.php'); ?>
+<?php $this->load->view('progress/form-modal.php'); ?>
 
