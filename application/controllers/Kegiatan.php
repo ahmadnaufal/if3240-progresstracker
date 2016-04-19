@@ -55,8 +55,8 @@ class Kegiatan extends CI_Controller {
 		if ($this->form_validation->run()) {
 
 			$kegiatan_data['nama_kegiatan'] = $this->input->post("nama");
-			$kegiatan_data['waktu_mulai'] = date('Y-m-d H:i:s', strtotime($this->input->post("waktu_mulai")));
-			$kegiatan_data['waktu_selesai'] = date('Y-m-d H:i:s', strtotime($this->input->post("waktu_selesai")));
+			$kegiatan_data['waktu_mulai'] = date('Y-m-d', strtotime($this->input->post("waktu_mulai")));
+			$kegiatan_data['waktu_selesai'] = date('Y-m-d', strtotime($this->input->post("waktu_selesai")));
 			$kegiatan_data['deskripsi'] = $this->input->post("deskripsi");
 			$kegiatan_data['milestone'] = $this->input->post("milestone");
 			$kegiatan_data['id_proyek'] = $this->input->post("id_proyek");

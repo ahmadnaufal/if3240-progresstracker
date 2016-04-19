@@ -18,13 +18,13 @@
             <div class="form-group">
               <label for="waktuMulai" class="col-sm-3 control-label">Waktu Mulai</label>
                 <div class="col-sm-8">
-                  <input type="datetime-local" class="form-control" id="waktuMulai" name="waktu_mulai" />
+                  <input type="date" class="form-control" id="waktuMulai" name="waktu_mulai" />
                 </div>
             </div>
             <div class="form-group">
               <label for="waktuSelesai" class="col-sm-3 control-label">Waktu Selesai</label>
                 <div class="col-sm-8">
-                  <input type="datetime-local" class="form-control" id="waktuSelesai" name="waktu_selesai" />
+                  <input type="date" class="form-control" id="waktuSelesai" name="waktu_selesai" />
                 </div>
             </div>
             <div class="form-group">
