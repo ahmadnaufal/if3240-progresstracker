@@ -68,6 +68,9 @@ class Proyek extends CI_Controller {
 					$persentase = $data_progress['persentase'];
 				else
 					$persentase = 0.0;
+
+				$proyek_data['kegiatan_proyek'][$i]['progress'] = $persentase;
+				$proyek_data['kegiatan_proyek'][$i]['progress_pengguna'] = $data_progress['username_pengguna'];
 				$progress += ($persentase/(100.0 * sizeof($proyek_data['kegiatan_proyek'])));
 			}
 

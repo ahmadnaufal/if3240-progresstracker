@@ -56,21 +56,26 @@
               <li><a href="#" class="kegiatan-file-uploader" data-toggle="modal" data-target="#formAddFile" data-idkegiatan="<?= $kegiatan['id'] ?>">Upload File</a></li>
             </ul>
           </div>
-          <?= form_open('progress/addProgress/'.$kegiatan['id'], array('class' => 'form-horizontal')) ?>
-          <div class="input-group col-sm-3">
-            <input type="number" class="form-control" id="persentase" name="persentase" placeholder="" />
-            <input type="hidden" name="username" value="<?= $userdata['username'] ?>">
-            <input type="hidden" id="idProyek" name="id_proyek" value="<?= $proyek['id'] ?>">
-            <input type="hidden" id="idKegiatan" name="id_kegiatan" value="<?= $kegiatan['id'] ?>">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-arrow-right"></i></button>
-            </span>
-          </div>
-          </form>
-          <div class="timeline-progress pull-right" style="margin-right:20px; !important">
-            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                60%
+          <div class="col-sm-3">
+            <?= form_open('progress/addProgress/'.$kegiatan['id'], array('class' => 'form')) ?>
+            <div class="input-group">
+              <input type="number" class="form-control" id="persentase" name="persentase" placeholder="" style="width: 100%;" />
+              <input type="hidden" name="username" value="<?= $userdata['username'] ?>">
+              <input type="hidden" id="idProyek" name="id_proyek" value="<?= $proyek['id'] ?>">
+              <input type="hidden" id="idKegiatan" name="id_kegiatan" value="<?= $kegiatan['id'] ?>">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-arrow-right"></i></button>
+              </span>
             </div>
+            </form>
+          </div>
+          <div class="col-md 7">
+            <div class="timeline-progress pull-right" style="margin-right:20px; !important">
+              <div class="progress-bar" role="progressbar" aria-valuenow="<?= $kegiatan['progress'] ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $kegiatan['progress'] ?>%;">
+                  <?= $kegiatan['progress'] ?>%
+              </div>
+            </div>
+            <p class="pull-right helper" style="margin-right:20px !important; margin-top: 5px;">Progress Terakhir Oleh: <b><?= $kegiatan['progress_pengguna'] ?></b></p>
           </div>
         </div>
         </div>

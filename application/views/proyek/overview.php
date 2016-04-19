@@ -1,6 +1,6 @@
 <div class="progress">
 	<div class="progress-bar" role="progressbar" aria-valuenow="<?= $overview_progress ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $overview_progress ?>%;">
-    	<?= $overview_progress ?>
+    	<?= number_format($overview_progress, 2) ?>%
   	</div>
 </div>
 <div class="progress-helper">
