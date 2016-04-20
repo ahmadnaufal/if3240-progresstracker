@@ -45,7 +45,9 @@
             <?php endforeach; ?>
           </div>
         <?php endif; ?>
-        <p class="pull-right helper" style="margin-bottom:0px !important; margin-top: 5px;">Progress Terakhir Oleh: <b><?= $kegiatan['progress_pengguna'] ?></b> pada <?= date("j F Y, H:i", strtotime($kegiatan['progress_timestamp'])) ?></p>
+        <?php if ($kegiatan['progress'] > 0) : ?>
+          <p class="pull-right helper" style="margin-bottom:0px !important; margin-top: 5px;">Progress Terakhir Oleh: <b><?= $kegiatan['progress_pengguna'] ?></b> pada <?= date("j F Y, H:i", strtotime($kegiatan['progress_timestamp'])) ?></p>
+        <?php endif; ?>
         <hr>
         <div class="row">
           <div class="btn-group col-sm-2">
