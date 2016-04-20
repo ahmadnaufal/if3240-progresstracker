@@ -45,6 +45,7 @@
             <?php endforeach; ?>
           </div>
         <?php endif; ?>
+        <p class="pull-right helper" style="margin-bottom:0px !important; margin-top: 5px;">Progress Terakhir Oleh: <b><?= $kegiatan['progress_pengguna'] ?></b> pada <?= date("j F Y, H:i", strtotime($kegiatan['progress_timestamp'])) ?></p>
         <hr>
         <div class="row">
           <div class="btn-group col-sm-2">
@@ -57,7 +58,7 @@
             </ul>
           </div>
           <div class="col-sm-3">
-            <?= form_open('progress/addProgress/'.$kegiatan['id'], array('class' => 'form')) ?>
+            <?= form_open('progress/addProgress/'.$kegiatan['id'], array('class' => 'form-horizontal')) ?>
             <div class="input-group">
               <input type="number" class="form-control" id="persentase" name="persentase" placeholder="" style="width: 100%;" />
               <input type="hidden" name="username" value="<?= $userdata['username'] ?>">
@@ -72,10 +73,9 @@
           <div class="col-md 7">
             <div class="timeline-progress pull-right" style="margin-right:20px; !important">
               <div class="progress-bar" role="progressbar" aria-valuenow="<?= $kegiatan['progress'] ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $kegiatan['progress'] ?>%;">
-                  <?= $kegiatan['progress'] ?>%
+                  <?= number_format($kegiatan['progress'], 0) ?>%
               </div>
             </div>
-            <p class="pull-right helper" style="margin-right:20px !important; margin-top: 5px;">Progress Terakhir Oleh: <b><?= $kegiatan['progress_pengguna'] ?></b></p>
           </div>
         </div>
         </div>

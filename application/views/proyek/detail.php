@@ -30,6 +30,7 @@
 			<div role="tabpanel" class="tab-pane fade in active" id="overview">
 				<?php
 					$data['overview_progress'] = $overview_progress;
+					$data['kegiatan_proyek'] = $kegiatan_proyek;
 					$this->load->view('proyek/overview.php', $data);
 				?>
 			</div>
