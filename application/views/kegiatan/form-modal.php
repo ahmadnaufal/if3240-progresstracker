@@ -34,11 +34,9 @@
                 </div>
             </div>
             <div class="form-group">
-              <label for="milestone" class="col-sm-3 control-label">Milestone</label>
-                <div class="col-sm-1">
-                  <input type="hidden" name="milestone" value="0">
-                  <input type="checkbox" class="form-control" id="milestone" name="milestone" value="1"/>
-                </div>
+              <div class="col-sm-1">
+                <input type="hidden" name="milestone" value="0">
+              </div>
             </div>
             <input type="hidden" name="id_proyek" value="<?= $id ?>">
           </div>

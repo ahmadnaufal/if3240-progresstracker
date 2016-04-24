@@ -53,5 +53,5 @@ $route['default_controller'] = 'autentikasi';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;
 
-$route['proyek/(:any)'] = 'proyek/getProyek/$1';
-$route['proyek/(:any)/channel/(:any)'] = 'channel/getChannel/$2/$1';
+$route['proyek/(:num)'] = 'proyek/getProyek/$1';
+$route['proyek/(:num)/channel/(:num)'] = 'channel/getChannel/$2/$1';

@@ -10,8 +10,9 @@ class Pengguna_model extends CI_Model
 		parent::__construct();
 	}
 
-	public function insert_new_pengguna($data)
+	public function insert_new_pengguna($data, $tipe = 0)
 	{
+		$data['tipe'] = 0;
 		$result = $this->db->insert('pengguna', $data);
 
 		return $result;
